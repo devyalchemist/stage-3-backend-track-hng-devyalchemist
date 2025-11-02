@@ -1,8 +1,25 @@
 import { Mastra } from "@mastra/core";
 import { projecthor } from "./agents/projecthor";
-import { weatherWorkflow } from "./workflows/weather-workflow";
+import { PinoLogger } from "@mastra/loggers";
+import { LibSQLStore } from "@mastra/libsql";
+import { a2aAgentRoute } from "./routes/a2a-agent-route";
 
 export const mastra = new Mastra({
 	agents: { projecthor },
-	workflows: { weatherWorkflow },
+	storage: new LibSQLStore({ url: ":memory:" }),
+
+	logger: new PinoLogger({
+		name: "Mastra",
+		level: "debug",
+	}),
+	observability: {
+		default: { enabled: true },
+	},
+	server: {
+		build: {
+			openAPIDocs: true,
+			swaggerUI: true,
+		},
+		apiRoutes: [a2aAgentRoute],
+	},
 });
