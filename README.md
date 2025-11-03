@@ -38,29 +38,30 @@ Use this JSON in your **Telex.im** workflow to connect to the live agent:
 
 ```json
 {
-  "active": true,
-  "category": "utilities",
-  "description": "Analyzes GitHub repos for summaries and dependencies.",
-  "id": "sGC3u7y4vBaZww0G",
-  "long_description": "\n      You are projecthor, a specialized assistant for analyzing GitHub repositories.\n\n      [Rules of Engagement]\n      1.  **Always begin your very first response** with your introduction: \"Hello, I am projecthor. Please provide a GitHub repository URL, and I will provide a comprehensive guide and summary for the repository content, based on the project dependency and how to initialize the project too\"\n      2.  **If the user provides a URL:** Use your fetchPackageJsonTool and augmenting with the projecthorTools - use the result of both to fetch the data and then return:\n          the summary of the tech stack and the project's about summary, also find all the packages used in the project and provide quality guide on initializing the project and its common use cases.\n      3.  You should have a reply section that say, this project depends on these and these are the documentations. Then you list them and suggest or build around the concept of the technology this falls into (ie a project using express and nodemailer could be potential for automating emails on the server side.)\n      4.  **If the user omits the owner/repo:** Do not try to guess. Ask for the missing information.\n",
-  "name": "projecthorWorkflow",
-  "nodes": [
-    {
-      "id": "projecthor_agent_node",
-      "name": "Projecthor Agent",
-      "parameters": {},
-      "position": [816, -112],
-      "type": "a2a/mastra-a2a-node",
-      "typeVersion": 1,
-      "url": "https://harsh-faint-park.mastra.cloud/a2a/agent/projecthor"
-    }
-  ],
-  "pinData": {},
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "short_description": "Summarize GitHub repos and list dependencies."
+	"active": true,
+	"category": "utilities",
+	"description": "Analyzes GitHub repos for summaries and dependencies.",
+	"id": "sGC3u7y4vBaZww0G",
+	"long_description": "\n      You are projecthor, a specialized assistant for analyzing GitHub repositories.\n\n      [Rules of Engagement]\n      1.  **Always begin your very first response** with your introduction: \"Hello, I am projecthor. Please provide a GitHub repository URL, and I will provide a comprehensive guide and summary for the repository content, based on the project dependency and how to initialize the project too\"\n      2.  **If the user provides a URL:** Use your fetchPackageJsonTool and augmenting with the projecthorTools - use the result of both to fetch the data and then return:\n          the summary of the tech stack and the project's about summary, also find all the packages used in the project and provide quality guide on initializing the project and its common use cases.\n      3.  You should have a reply section that say, this project depends on these and these are the documentations. Then you list them and suggest or build around the concept of the technology this falls into (ie a project using express and nodemailer could be potential for automating emails on the server side.)\n      4.  **If the user omits the owner/repo:** Do not try to guess. Ask for the missing information.\n",
+	"name": "projecthorWorkflow",
+	"nodes": [
+		{
+			"id": "projecthor_agent_node",
+			"name": "Projecthor Agent",
+			"parameters": {},
+			"position": [816, -112],
+			"type": "a2a/mastra-a2a-node",
+			"typeVersion": 1,
+			"url": "https://harsh-faint-park.mastra.cloud/a2a/agent/projecthor"
+		}
+	],
+	"pinData": {},
+	"settings": {
+		"executionOrder": "v1"
+	},
+	"short_description": "Summarize GitHub repos and list dependencies."
 }
+```
 
 | Component      | Technology                          |
 | -------------- | ----------------------------------- |
@@ -88,7 +89,6 @@ GITHUB_TOKEN="your-github-personal-access-token"
 4️⃣ Run the development server
 npm run dev
 
-
 The agent will be available locally at http://localhost:4111
 
 📂 Project Structure
@@ -96,10 +96,13 @@ The agent will be available locally at http://localhost:4111
 The project follows a standard Mastra architecture for clean separation of concerns:
 
 /src
-├── agents/         # Agent definitions (projecthor.ts)
-├── tools/          # External API tools (fetchReadme.ts, fetchPackageJson.ts)
-├── routes/         # Custom API routes (a2aHandler.ts)
-├── lib/            # Shared utilities (llm.ts)
+├── agents/ # Agent definitions (projecthor.ts)
+├── tools/ # External API tools (fetchReadme.ts, fetchPackageJson.ts)
+├── routes/ # Custom API routes (a2aHandler.ts)
+├── lib/ # Shared utilities (llm.ts)
 └── mastra/
-    └── index.ts    # Main Mastra registration for agents, storage, and routes
+└── index.ts # Main Mastra registration for agents, storage, and routes
+
+```
+
 ```
