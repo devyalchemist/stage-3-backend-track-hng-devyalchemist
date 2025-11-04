@@ -51,7 +51,7 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
 									parts: [
 										{
 											kind: "text",
-											text: "No input received — but the gods are listening.",
+											text: "No input received — But I am all ears",
 										},
 									],
 								},
