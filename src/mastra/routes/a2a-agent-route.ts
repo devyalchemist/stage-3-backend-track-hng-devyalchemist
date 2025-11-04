@@ -138,7 +138,7 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
 					name: "ToolResults",
 					parts: response.toolResults.map((result: any) => ({
 						kind: "data",
-						data: result,
+						text: typeof result === "string" ? result : JSON.stringify(result),
 					})),
 				});
 			}
