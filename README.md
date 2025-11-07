@@ -63,7 +63,7 @@ Use this JSON in your **Telex.im** workflow to connect to the live agent:
 }
 ```
 
-| Component      | Technology                          |
+| Components      | Technology                          |
 | -------------- | ----------------------------------- |
 | **Framework**  | Mastra                              |
 | **Language**   | TypeScript                          |
